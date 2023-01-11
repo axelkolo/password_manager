@@ -19,3 +19,8 @@ const compareHashedPassword = async (password) => {
     const { hash } = mockDB; //check if password hash exists
     return await bcrypt.compare(password, hash); //Compare the input password to the value in my local dataase
 }
+
+const promptNewPassword = () => {
+    const response = prompt("Enter a main password: "); //Prompt the user to type in a new password
+    saveNewPassword(response); //save the user's input text through saveNewPasword
+};
