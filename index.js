@@ -70,3 +70,6 @@ const promptManageNewPassword = () => {
     console.log(`Password for ${source} has been saved!`);
     showMenu(); //Call showMenu to display the menu options
 };
+
+if (!mockDB.hash) promptNewPassword();//Check Whether you have a local password saved or if you need to type a new main password
+else promptOldPassword();
