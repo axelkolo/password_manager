@@ -35,3 +35,21 @@ const promptOldPassword = () => {
         promptOldPassword(); //Re-run promptOldPassword if the user is not validated
     }
 };
+
+const showMenu = () => {
+    console.log(`
+    1. View passwords
+    2. Manage new password
+    3. Verify password
+    4. Exit`); //Prompt the user with four options to select
+   const response = prompt(">");
+
+   if (response === "1") viewPasswords(); //After selecting a value from 1-4, the user may view their passwords, add a new one, verify their man password, or exit the app
+   else if (response === "2") promptManageNewPasswords();
+   else if (response === "3") promptOldPassword();
+   else if (response === "4") process.exit();
+   else { //If no valid option is selected, the user is prompted again
+      console.log(`That's an invalid response. `);
+      showMenu();
+   }
+};
