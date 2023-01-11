@@ -24,3 +24,14 @@ const promptNewPassword = () => {
     const response = prompt("Enter a main password: "); //Prompt the user to type in a new password
     saveNewPassword(response); //save the user's input text through saveNewPasword
 };
+
+const promptOldPassword = () => {
+    const response = prompt("Enter your password: ");
+    if (result) { //Che k if their typed password is successfully validated
+        console.log("Password verified.");
+        showMenu();
+    } else {
+        console.log("Password incorrect.");
+        promptOldPassword(); //Re-run promptOldPassword if the user is not validated
+    }
+};
