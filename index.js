@@ -53,3 +53,20 @@ const showMenu = () => {
       showMenu();
    }
 };
+
+const viewPasswords = () => {
+    const { passwords } = mockDB; //Destructure passwords from my mockDB
+    Object.entries(passwords).forEach(([key, value], index) => {
+        console.log(`${index + 1}. ${key} => ${value}`);
+    }); //Iterate through passwords in your local database and log them to my console
+    showMenu(); //Call showMenu to display the menu options
+};
+
+const promptManageNewPassword = () => {
+    const source = prompt("Enter name for password: "); //Prompt the user to add a new password and source name to manage
+    const password = prompt("Enter password to save: ");
+
+    mockDB.passwords[source] = password; //Save the source and password pair in mockDb
+    console.log(`Password for ${source} has been saved!`);
+    showMenu(); //Call showMenu to display the menu options
+};
